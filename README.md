@@ -1,4 +1,4 @@
-# ECO-REVIVE
+# ECO-REVIVE🌿☘️
 The increasing volume of municipal solid waste (MSW)
  poses a significant environmental and economic challenge,
  leading to overflowing landfills, high greenhouse 
