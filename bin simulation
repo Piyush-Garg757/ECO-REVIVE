@@ -1,0 +1,47 @@
+import React, { useState } from 'react';
+import { QRCodeCanvas } from 'qrcode.react';
+
+const wasteTypes = ['Plastic', 'Organic', 'Metal', 'Glass', 'Paper'];
+
+export default function SmartBinSimulation() {
+  const [scanned, setScanned] = useState(false);
+  const [wasteType, setWasteType] = useState('');
+  const [amount, setAmount] = useState(0);
+  const [points, setPoints] = useState(0);
+  const [streak, setStreak] = useState(1);
+
+  const simulateWasteDetection = () => {
+    const detectedWaste = wasteTypes[Math.floor(Math.random() * wasteTypes.length)];
+    const wasteAmount = Math.floor(Math.random() * 5) + 1;
+    setWasteType(detectedWaste);
+    setAmount(wasteAmount);
+    setScanned(true);
+  };
+
+  const confirmWaste = () => {
+    const wastePoints = amount * 10;
+    setPoints(points + wastePoints);
+    setStreak(streak + 1);
+    setScanned(false);
+    alert(`Successfully disposed ${amount}kg of ${wasteType}. You earned ${wastePoints} points!`);
+  };
+
+  return (
+    <div className="flex flex-col items-center p-6 space-y-6 bg-gray-100 h-screen">
+      <h1 className="text-3xl font-bold">Eco-Revive Smart Bin Simulation</h1>
+      <QRCodeCanvas value="https://eco-revive-scan.com" size={150} />
+      <button className="px-4 py-2 bg-green-500 text-white rounded" onClick={simulateWasteDetection}>Simulate Waste Detection</button>
+      {scanned && (
+        <div className="bg-white p-4 shadow-md rounded">
+          <p>Detected Waste: <span className="font-bold">{wasteType}</span></p>
+          <p>Amount: <span className="font-bold">{amount} kg</span></p>
+          <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded" onClick={confirmWaste}>Confirm & Earn Points</button>
+        </div>
+      )}
+      <div className="text-lg mt-6">
+        <p>Your Points: <span className="font-bold">{points}</span></p>
+        <p>Daily Streak: <span className="font-bold">{streak} days</span></p>
+      </div>
+    </div>
+  );
+}
