@@ -31,13 +31,14 @@ Integrates Sensors
 RFID & QR Code Scanners
 IoT, AI & ML, Flutter, Node.js ,Python ,REACT
 GPS & GIS mapping
+Google Cloud IoT
+Dialogflow 
+Firebase
+
 
 
 ![135564f45a704d11b573a5b19de31ffe 1](https://github.com/user-attachments/assets/8561e295-97a9-4694-834f-932ee262d393)
 
-Google Cloud IoT
-Dialogflow 
-Firebase
 
 
 
